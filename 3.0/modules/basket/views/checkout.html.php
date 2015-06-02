@@ -19,9 +19,9 @@
  */
 ?>
 <SCRIPT language="JavaScript">
-function ive(s)
-{
-  return (s.indexOf(".")>2)&&(s.indexOf("@")>0);
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
 }
 
 function se(v)
@@ -45,7 +45,7 @@ function so(g){
 	  var p=true;
 	  var d=document.checkout;
 	  if(!ci(d.fullname)){p=false;}
-	  if((!ci(d.email))||(!ive(d.email.value))){se(d.email);p=false;}
+	  if((!ci(d.email))||(!validateEmail(d.email.value))){se(d.email);p=false;}
 	  if(!ci(d.phone)){p=false;}
 	  if (p)
 	  {
